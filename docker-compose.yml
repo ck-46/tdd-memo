@@ -46,3 +46,13 @@ services:
       TZ: 'Asia/Tokyo'
     volumes:
       - mysql-volume:/var/lib/mysql
+
+  selenium:
+    container_name: selenium
+    image: selenium/standalone-chrome-debug
+    ports:
+      - 4444:4444
+      - 5900:5900
+    depends_on:
+      - web
+    privileged: true
